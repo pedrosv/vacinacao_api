@@ -2,6 +2,8 @@ package com.pedrosv.vacinacao.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +34,7 @@ public class UsuarioController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario adicionar(@RequestBody Usuario usuario) {
+	public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
 		return usuarioService.criar(usuario);
 	}
 	
