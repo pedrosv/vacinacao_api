@@ -1,7 +1,5 @@
 package com.pedrosv.vacinacao.domain.service;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +12,16 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public Usuario criar(Usuario usuario) {		
+	public Usuario criar(Usuario usuario) {
+		
+		if(usuarioRepository.existsByCpf(usuario.getCpf())) {
+			
+		}
+		
+		if(usuarioRepository.existsByEmail(usuario.getEmail())) {
+			
+		}
+		
 		return usuarioRepository.save(usuario);
 	}
 }

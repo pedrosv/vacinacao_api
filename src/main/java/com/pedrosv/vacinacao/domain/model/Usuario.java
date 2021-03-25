@@ -1,6 +1,5 @@
 package com.pedrosv.vacinacao.domain.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -9,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -20,24 +21,31 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	
+	@NotBlank
 	@Size(max = 60)
 	private String nome;
 	
+	@NotBlank
 	@Email
 	@Size(max = 255)
 	private String email;
 	
+	@NotBlank
 	@CPF
 	@Size(max = 11)
 	private String cpf;
 	
+	@NotNull
 	@Column(name = "data_nascimento")
 	private LocalDateTime dataNascimento;
 
 	
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
