@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pedrosv.vacinacao.domain.model.Usuario;
 import com.pedrosv.vacinacao.domain.repository.UsuarioRepository;
+import com.pedrosv.vacinacao.domain.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -22,6 +23,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	@GetMapping
 	public List<Usuario> listar(){
@@ -31,7 +35,7 @@ public class UsuarioController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario adicionar(@RequestBody Usuario usuario) {
-		return usuarioRepository.save(usuario);
+		return usuarioService.criar(usuario);
 	}
 	
 	
