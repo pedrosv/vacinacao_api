@@ -18,19 +18,19 @@ public class Vacina {
 	@ManyToOne
 	private Usuario usuario;
 	
-	private String name;
+	private String nome;
 	private LocalDateTime dataAplicacao;
 	
 	public Long getId() {
 		return id;
 	}
 	
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String name) {
+		this.nome = name;
 	}
 	
 	public Usuario getUsuario() {
