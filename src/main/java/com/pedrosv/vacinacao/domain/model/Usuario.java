@@ -6,6 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Usuario {
@@ -13,9 +18,21 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	
+	@Size(max = 60)
 	private String nome;
+	
+	@NotBlank
+	@Email
+	@Size(max = 255)
 	private String email;
+	
+	@NotBlank
+	@CPF
+	@Size(max = 11)
 	private String cpf;
+	
 	
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
