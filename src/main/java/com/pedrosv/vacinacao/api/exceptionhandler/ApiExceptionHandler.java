@@ -21,12 +21,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 		
 		var status = HttpStatus.BAD_REQUEST;
 		
-		var boddyError = new BoddyError();
-		boddyError.setStatus(status.value());
-		boddyError.setTitulo(ex.getMessage());
-		boddyError.setDataHora(LocalDateTime.now());
+		var bodyError = new BodyError();
+		bodyError.setStatus(status.value());
+		bodyError.setTitulo(ex.getMessage());
+		bodyError.setDataHora(LocalDateTime.now());
 		
-		return super.handleExceptionInternal(ex, boddyError, new HttpHeaders(), status, request); 
+		return super.handleExceptionInternal(ex, bodyError, new HttpHeaders(), status, request); 
 		
 	}
 
@@ -34,12 +34,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		
-		var boddyError = new BoddyError();
-		boddyError.setStatus(status.value());
-		boddyError.setTitulo("Um ou mais campos inválidos");
-		boddyError.setDataHora(LocalDateTime.now());
+		var bodyError = new BodyError();
+		bodyError.setStatus(status.value());
+		bodyError.setTitulo("Um ou mais campos inválidos");
+		bodyError.setDataHora(LocalDateTime.now());
 		
-		return super.handleExceptionInternal(ex, boddyError, headers, status, request);
+		return super.handleExceptionInternal(ex, bodyError, headers, status, request);
 	}
 
 }

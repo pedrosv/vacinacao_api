@@ -2,7 +2,7 @@ package com.pedrosv.vacinacao.api.exceptionhandler;
 
 import java.time.LocalDateTime;
 
-public class BoddyError {
+public class BodyError {
 
 	private Integer status;
 	private LocalDateTime dataHora;

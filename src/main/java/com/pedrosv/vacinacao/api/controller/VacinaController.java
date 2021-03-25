@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pedrosv.vacinacao.domain.model.Usuario;
 import com.pedrosv.vacinacao.domain.model.Vacina;
 import com.pedrosv.vacinacao.domain.repository.VacinaRepository;
 import com.pedrosv.vacinacao.domain.service.VacinaService;
@@ -35,14 +34,13 @@ public class VacinaController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Vacina criar(@RequestBody  Map<String, String> payload) {
+	public Vacina cadastrar(@RequestBody  Map<String, String> payload) {
 		
 		var email = payload.get("email");
 		var nome = payload.get("nome");
 		var dataAplicacao = LocalDateTime.parse(payload.get("dataAplicacao"));
 	
 		
-		return vacinaService.criar(nome, email, dataAplicacao);		
-		
+		return vacinaService.criar(nome, email, dataAplicacao);			
 	}
 }

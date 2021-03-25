@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Vacina {
@@ -18,7 +21,11 @@ public class Vacina {
 	@ManyToOne
 	private Usuario usuario;
 	
+	@NotBlank
+	@Size(max = 30)
 	private String nome;
+	
+	@NotNull
 	private LocalDateTime dataAplicacao;
 	
 	public Long getId() {

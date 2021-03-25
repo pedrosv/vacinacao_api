@@ -37,6 +37,4 @@ public class UsuarioController {
 	public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
 		return usuarioService.criar(usuario);
 	}
-	
-	
 }
